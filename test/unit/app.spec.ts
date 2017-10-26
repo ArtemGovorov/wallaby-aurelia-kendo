@@ -7,33 +7,49 @@ import {PLATFORM} from 'aurelia-pal';
 
 let component;
 let viewModel: App;
+let container: Container;
 
 describe('the app', () => {
-  it('says hello', () => {
-    expect(new App().message).toBe('Hello World!');
-  });
 
-  it('says hello too', done => {
-    let container: Container = new Container();
+  beforeEach(() => {
+    container = new Container();
 
     viewModel = container.get(App);
     viewModel.message = "42";
 
     component = StageComponent
-        .withResources()
-        .inView("<app></app>")
-        .boundTo(viewModel);
+      .withResources()
+      .inView("<app></app>")
+      .boundTo(viewModel);
 
     component.bootstrap(aurelia => {
-        aurelia.use
-            .standardConfiguration()
-            .plugin(PLATFORM.moduleName("aurelia-kendoui-bridge"));
+      aurelia.use
+        .standardConfiguration()
+        .plugin(PLATFORM.moduleName("aurelia-webpack-plugin"))
+        .plugin(PLATFORM.moduleName("aurelia-kendoui-bridge"));
     });
+
+  });
+  it('says hello', () => {
+    expect(new App().message).toBe('Hello World!');
+  });
+
+  it('says hello too', done => {
 
     component.create(bootstrap).then(() => {
         console.log('viewModel.message' + viewModel.message);
         expect(viewModel.message).toBe('42');
         done();
       });
+  });
+
+  it('shows notifications', done => {
+    spyOn(viewModel, "showNotification").and.callFake((logger, e) => {/**/});
+    component.create(bootstrap).then(() => {
+      expect(viewModel.showNotification("info")).toHaveBeenCalled();
+      expect(viewModel.showNotification("warning")).toHaveBeenCalled();
+      expect(viewModel.showNotification("error")).toHaveBeenCalled();
+      done();
+    });
   });
 });

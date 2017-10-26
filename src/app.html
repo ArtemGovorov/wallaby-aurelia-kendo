@@ -1,5 +1,13 @@
 <template>
     <require from="aurelia-kendoui-bridge/button/button"></require>
+    <require from="aurelia-kendoui-bridge/notification/notification"></require>
+    <div id="errorDisplay" class="alert">
+        <ak-notification id="staticNotification" k-append-to="#errorDisplay" k-button.bind="true" k-hide-on-click.bind="false" k-auto-hide-after="0"
+            k-widget.bind="staticNotification">
+        </ak-notification>
+    </div>
     <h1>${message}</h1>
-    <button ak-button>Test</button>
+    <button id="info" click.delegate="showNotification($event.target.id)">Information</button>
+    <button id="error" click.delegate="showNotification($event.target.id)">Error</button>
+    <button id="warning" click.delegate="showNotification($event.target.id)">Success</button>
 </template>

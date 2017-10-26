@@ -2,6 +2,7 @@ import {Aurelia} from 'aurelia-framework'
 import environment from './environment';
 import "kendo-ui";
 import "kendo-ui/js/kendo.button";
+import "kendo-ui/js/kendo.notification";
 
 export function configure(aurelia: Aurelia) {
   aurelia.use

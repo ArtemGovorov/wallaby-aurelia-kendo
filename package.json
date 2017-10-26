@@ -8,7 +8,7 @@
   },
   "license": "MIT",
   "dependencies": {
-    "@progress/kendo-ui": "^2017.2.621",
+
     "@types/kendo-ui": "^2017.1.7",
     "aurelia-animator-css": "^1.0.0",
     "aurelia-bootstrapper": "^2.1.1",
@@ -24,6 +24,7 @@
     "i18next": "^8.4.2",
     "i18next-xhr-backend": "^1.2.1",
     "jquery": "^3.1.1",
+    "kendo-ui-core": "^2017.3.1026",
     "popper.js": "^1.12.5",
     "requirejs": "^2.3.2",
     "text": "github:requirejs/text#latest",
