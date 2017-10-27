@@ -6,7 +6,7 @@ var wallabyPostprocessor = wallabyWebpack({
   resolve: {
     alias: {
       'kendo-ui/js': '@progress/kendo-ui/js',
-      'kendo-ui': '/kendo-ui-core/js/kendo.core.js',
+      'kendo-ui': 'kendo-ui-core/js/kendo.core.js',
       'module': 'webpack/lib/Module.js'
     }
   },
