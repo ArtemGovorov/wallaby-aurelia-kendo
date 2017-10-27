@@ -27,7 +27,7 @@ describe('the app', () => {
     component.bootstrap(aurelia => {
       aurelia.use
         .standardConfiguration()
-        // .plugin(PLATFORM.moduleName("aurelia-kendoui-bridge"));
+        .plugin(PLATFORM.moduleName("aurelia-kendoui-bridge"));
     });
 
   });
