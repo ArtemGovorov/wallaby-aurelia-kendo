@@ -75,7 +75,7 @@
     "typescript": "^2.5.3",
     "uglify-js": "^3.0.18",
     "vinyl-fs": "^2.4.3",
-    "wallaby-webpack": "0.0.39",
+    "wallaby-webpack": "0.0.43",
     "webpack": "^3.5.5"
   },
   "scripts": {
