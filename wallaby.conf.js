@@ -31,7 +31,8 @@ module.exports = function (wallaby) {
     plugins: [
       new DefinePlugin({AURELIA_WEBPACK_2_0: undefined}),
       new AureliaPlugin({
-        aureliaApp: undefined
+        aureliaApp: undefined,
+        viewsFor: '{' + path.relative(path.resolve(), wallaby.projectCacheDir) + '/,}**/!(tslib)*.{ts,js}'
       })
     ]
   });
