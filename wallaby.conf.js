@@ -1,6 +1,7 @@
 var wallabyWebpack = require('wallaby-webpack');
 const path = require('path');
 var AureliaPlugin = require('aurelia-webpack-plugin').AureliaPlugin;
+var ModuleDependenciesPlugin = require('aurelia-webpack-plugin').ModuleDependenciesPlugin;
 var DefinePlugin = require('webpack').DefinePlugin;
 
 module.exports = function (wallaby) {
@@ -32,6 +33,9 @@ module.exports = function (wallaby) {
       new DefinePlugin({AURELIA_WEBPACK_2_0: undefined}),
       new AureliaPlugin({
         aureliaApp: undefined
+      }),
+      new ModuleDependenciesPlugin({
+        "aurelia-kendoui-bridge": [ "aurelia-kendoui-bridge/notification/notification.html" ]
       })
     ]
   });
