@@ -19,8 +19,7 @@ describe('the app', () => {
     viewModel.message = "42";
 
     component = StageComponent
-      .withResources(PLATFORM.moduleName('app.html') &&
-      PLATFORM.moduleName('app'))
+      .withResources(PLATFORM.moduleName('app'))
       .inView("<app></app>")
       .boundTo(viewModel);
 
